@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ru.crud:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ru_crud_Web_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ru.crud" />
+        </element>
+      </element>
+      <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+      <element id="javaee-facet-resources" facet="ru.crud/web/Web" />
+    </root>
+  </artifact>
+</component>
