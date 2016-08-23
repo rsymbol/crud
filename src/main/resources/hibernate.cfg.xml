@@ -4,11 +4,12 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <!--basic properties-->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/UserBase</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.password">admin</property>
         <property name="hibernate.connection_provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
         <property name="c3p0.minPoolSize">5</property>
         <property name="c3p0.timeout">1000</property>
@@ -22,9 +23,6 @@
         <!-- Print SQL to stdout. -->
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
-
-        <!-- Drop and then re-create schema on SessionFactory build, for testing. -->
-        <!--<property name="hbm2ddl.auto">create</property>-->
 
         <!-- Bind the getCurrentSession() method to the thread. -->
         <property name="current_session_context_class">thread</property>

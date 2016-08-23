@@ -12,6 +12,9 @@ public class MemoryStorage implements Storage {
     private final AtomicInteger ids = new AtomicInteger();
     private final ConcurrentHashMap<Integer, User> users = new ConcurrentHashMap<Integer, User>();
 
+    /**
+     * генерирование тестовой базы пользователей
+     */
     public MemoryStorage() {
         for (int i = 0; i < 45; i++) {
             ids.addAndGet(1);
@@ -19,11 +22,13 @@ public class MemoryStorage implements Storage {
         }
     }
 
+    // комментарий в интерфейсе
     @Override
     public Collection<User> values() {
         return this.users.values();
     }
 
+    // комментарий в интерфейсе
     @Override
     public Collection<User> values(final String sort, int offset, int row_count) {
         int s = users.values().size();
@@ -54,32 +59,38 @@ public class MemoryStorage implements Storage {
         return result;
     }
 
+    // комментарий в интерфейсе
     @Override
     public int add(final User user) {
         this.users.put(user.getId(), user);
         return user.getId();
     }
 
+    // комментарий в интерфейсе
     @Override
     public void edit(final User user) {
         this.users.replace(user.getId(), user);
     }
 
+    // комментарий в интерфейсе
     @Override
     public void delete(final int id) {
         this.users.remove(id);
     }
 
+    // комментарий в интерфейсе
     @Override
     public User get(final int id) {
         return this.users.get(id);
     }
 
+    // комментарий в интерфейсе
     @Override
     public int generateId() {
         return this.ids.incrementAndGet();
     }
 
+    // комментарий в интерфейсе
     @Override
     public void close() {
     }

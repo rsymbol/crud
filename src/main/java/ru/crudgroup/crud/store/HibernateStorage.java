@@ -12,6 +12,9 @@ import java.util.Collection;
 
 public class HibernateStorage implements Storage {
 
+    /**
+     * синглтон
+     */
     private static HibernateStorage instance = null;
     private HibernateStorage() {}
     public static HibernateStorage getInstance() {
@@ -21,6 +24,10 @@ public class HibernateStorage implements Storage {
 
     private final SessionFactory factory = buildSessionFactory();
 
+    /**
+     * создание подключения
+     * @return factory
+     */
     private static SessionFactory buildSessionFactory() {
 
         Configuration configuration = new Configuration();
@@ -29,6 +36,7 @@ public class HibernateStorage implements Storage {
         return configuration.buildSessionFactory(serviceRegistry);
     }
 
+    // комментарий в интерфейсе
     @Override
     public Collection<User> values() {
         final Session session = factory.openSession();
@@ -41,6 +49,7 @@ public class HibernateStorage implements Storage {
         }
     }
 
+    // комментарий в интерфейсе
     @Override
     public Collection<User> values(String sort, int offset, int row_count) {
         final Session session = factory.openSession();
@@ -53,6 +62,7 @@ public class HibernateStorage implements Storage {
         }
     }
 
+    // комментарий в интерфейсе
     @Override
     public int add(final User user) {
         final Session session = factory.openSession();
@@ -66,6 +76,7 @@ public class HibernateStorage implements Storage {
         }
     }
 
+    // комментарий в интерфейсе
     @Override
     public void edit(User user) {
         final Session session = factory.openSession();
@@ -78,6 +89,7 @@ public class HibernateStorage implements Storage {
         }
     }
 
+    // комментарий в интерфейсе
     @Override
     public void delete(int id) {
         final Session session = factory.openSession();
@@ -90,6 +102,7 @@ public class HibernateStorage implements Storage {
         }
     }
 
+    // комментарий в интерфейсе
     @Override
     public User get(int id) {
         final Session session = factory.openSession();
@@ -102,6 +115,7 @@ public class HibernateStorage implements Storage {
         }
     }
 
+    // комментарий в интерфейсе
     @Override
     public int generateId() {
         final Session session = factory.openSession();
@@ -114,6 +128,7 @@ public class HibernateStorage implements Storage {
         }
     }
 
+    // комментарий в интерфейсе
     @Override
     public void close() {
         this.factory.close();

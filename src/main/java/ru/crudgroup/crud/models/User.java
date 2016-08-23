@@ -3,18 +3,24 @@ package ru.crudgroup.crud.models;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+/**
+ * Основной класс пользователей
+ */
 @Entity
 @Table(name = "user", schema = "userbase")
 public class User {
-    private int id;
-    private String name;
-    private int age;
-    private boolean admin;
-    private Timestamp createdDate;
+    /** характеристики пользователя */
+    private int id;                     //внутренний ID
+    private String name;                //имя
+    private int age;                    //возраст
+    private boolean admin;              //является ли админом
+    private Timestamp createdDate;      //дата внесения в базу
 
+    /** конструктор по умолчанию (для hebirnate)*/
     public User() {
     }
 
+    /** инициализация характеристик*/
     public User(int id, String name, int age, boolean admin, Timestamp createdDate) {
         this.id = id;
         this.name = name;
@@ -23,6 +29,10 @@ public class User {
         this.createdDate = createdDate;
     }
 
+    /**
+     * стандартные сеттеры и геттеры для hebirnate)
+     * аннотации для связки с БД (для hebirnate)
+     */
     @Id
     @Column(name = "id", nullable = false)
     public int getId() {
@@ -73,6 +83,7 @@ public class User {
         this.createdDate = createdDate;
     }
 
+    /** переопределение для работы с классом User*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,6 +100,7 @@ public class User {
         return true;
     }
 
+    /** переопределение для работы с классом User*/
     @Override
     public int hashCode() {
         int result = id;
@@ -99,6 +111,7 @@ public class User {
         return result;
     }
 
+    /** переопределение для работы с классом User*/
     @Override
     public String toString() {
         return "User{" +
